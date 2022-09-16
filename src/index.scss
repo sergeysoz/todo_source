@@ -1,0 +1,132 @@
+// Reset browser styles and global issues
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+@mixin devices($breakpoint) {
+  @if $breakpoint == tablet {
+    @media only screen and (min-width: 48rem) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 62rem) {
+      @content;
+    }
+  }
+}
+
+// prettier-ignore
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+// prettier-ignore
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+  line-height: 1;
+}
+// prettier-ignore
+ol, ul {
+	list-style: none;
+}
+// prettier-ignore
+blockquote, q {
+	quotes: none;
+}
+// prettier-ignore
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+$background-color: #383838;
+$text-color: hsl(0, 0%, 93%);
+
+$grey: #444;
+$grey-darker: #333;
+$grey-border: #646464;
+
+$cinnamon: #643b3b;
+$cinnamon-lighter: #6d4141;
+$cinnamon-lighter-two: #784747;
+
+$brick: #896767;
+$brick-lighter: #7c5d5d;
+
+//grey-scale
+
+$grey-scale-one: #050505;
+$grey-scale-two: #282828;
+$grey-scale-three: #303030;
+$grey-scale-four: #373737;
+$grey-scale-five: #474747;
+$grey-scale-six: #505050;
+$grey-scale-seven: #999;
+$grey-scale-eight: #a3a3a3;
+$grey-scale-nine: #bbb;
+$grey-scale-ten: #d0d0d0;
+$grey-scale-eleven: #f0f0f0;
+$grey-scale-twelve: #fafafa;
+
+:root {
+  font-size: 16px !important;
+  box-sizing: border-box !important;
+}
+
+html {
+  box-sizing: border-box !important;
+}
+/* prettier-ignore */
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: "Raleway", sans-serif !important;
+  background-image: url("./todo_pattern.svg");
+  background-size: 68vw;
+  background-repeat: repeat;
+  & p::selection {
+    background-color: $grey-darker;
+  }
+}
+
+@include devices(tablet) {
+  body {
+    background-size: 50vw;
+  }
+}
+
+@include devices(desktop) {
+  body {
+    background-size: 28vw;
+  }
+}

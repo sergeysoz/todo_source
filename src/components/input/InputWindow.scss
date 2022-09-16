@@ -1,0 +1,168 @@
+@import "../../../src/index";
+
+.InputWindow__box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  z-index: 7;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  backdrop-filter: brightness(42%);
+  animation: fadein 100ms linear;
+  &::selection {
+    background-color: $grey-darker;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.InputWindow__window {
+  background-color: $grey-scale-two;
+  width: 95vw;
+  margin: 0.75rem auto 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem 1rem;
+  border-radius: 6px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  animation: fadeup 200ms ease-in-out;
+}
+
+@keyframes fadeup {
+  from {
+    transform: translateY(5px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+.InputWindow__title {
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-align: left;
+  font-size: 1.25rem;
+  width: 100%;
+  color: $text-color;
+  &::selection {
+    background-color: $grey-darker;
+  }
+}
+
+.InputWindow__form {
+  min-width: 100%;
+}
+
+.InputWindow__input {
+  font-size: 1rem;
+  min-width: 100%;
+  font-family: "Raleway", sans-serif;
+  padding: 0.75rem 1rem;
+  background-color: $grey;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  color: $text-color;
+  margin-bottom: 2rem;
+  &:hover {
+    outline: none;
+    border: none;
+  }
+  &:focus {
+    outline: 2px solid $grey-scale-four;
+  }
+  &::selection {
+    background-color: $grey-darker;
+  }
+}
+
+.InputWindow__footer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 0.5rem;
+}
+
+.InputWindow__footer_button {
+  border: none;
+  font-size: 0.75rem;
+  font-family: "Raleway", sans-serif;
+  // font-weight: 600;
+  // text-transform: uppercase;
+  border-radius: 3px;
+  padding: 0.75rem 1rem;
+  background-color: $grey-scale-nine;
+  color: $grey-scale-one;
+  transition: background-color 200ms ease-in-out;
+  &:hover {
+    background-color: $grey-scale-eight;
+    transition: background-color 200ms ease-in-out;
+  }
+  &::selection {
+    background-color: $grey-darker;
+  }
+}
+
+.InputWindow__footer_cancelButton {
+  background-color: $grey-darker;
+  color: $text-color;
+  &:hover {
+    background-color: $grey-scale-three;
+  }
+}
+
+@include devices(tablet) {
+  .InputWindow__window {
+    width: 67vw;
+    padding: 2rem;
+    margin: 0.75rem auto 0;
+  }
+
+  .InputWindow__input {
+    font-size: 1.25rem;
+  }
+
+  .InputWindow__footer {
+    grid-gap: 1rem;
+  }
+  .InputWindow__footer_button {
+    font-size: 1rem;
+  }
+}
+
+@include devices(desktop) {
+  .InputWindow__box {
+    justify-content: center;
+  }
+
+  .InputWindow__window {
+    width: 40vw;
+    padding: 2rem 2.5rem;
+    margin: 0 auto;
+  }
+
+  .InputWindow__title {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .InputWindow__input {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    padding: 0.75rem 1rem;
+  }
+}

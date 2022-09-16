@@ -1,0 +1,12 @@
+@import "../../../src/index";
+
+.Layout__layout {
+  max-width: 95vw;
+  margin: 0 auto !important;
+}
+
+@include devices(desktop) {
+  .Layout__layout {
+    max-width: 50vw;
+  }
+}

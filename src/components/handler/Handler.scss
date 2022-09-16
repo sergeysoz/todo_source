@@ -1,0 +1,74 @@
+@import "../../../src/index";
+
+.Handler__box {
+  position: fixed;
+  width: 18rem;
+  right: calc(100vw - (50% + 9rem));
+  bottom: 0;
+  margin: 1rem auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-auto-flow: row;
+  grid-gap: 0.25rem;
+  background-color: $grey;
+  border: 1px solid $grey-border;
+  padding: 0.5rem;
+  border-radius: 6px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.Handler__button {
+  // margin: 0.2rem;
+  background-color: $grey;
+  border: none;
+  outline: none;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  max-width: 2.5rem;
+  max-height: 2.5rem;
+  border-radius: 2px;
+  transition: background-color 200ms ease-in-out;
+  &:hover {
+    background-color: hsl(0, 0%, 32%);
+    transition: background-color 200ms ease-in-out;
+  }
+  &:disabled {
+    background-color: $grey;
+    filter: opacity(0.2);
+    &:hover {
+      background-color: $grey;
+    }
+  }
+  & i {
+    font-size: 1.2rem;
+  }
+}
+
+.Handler_active {
+  background-color: $brick;
+  &:hover {
+    background-color: $brick-lighter;
+  }
+}
+
+@include devices(desktop) {
+  .Handler__box {
+    height: auto;
+    width: auto;
+    right: 0;
+    padding: 0.5rem;
+    grid-gap: 0.6rem;
+    margin: 1rem 1rem 1rem 0;
+    border-radius: 8px;
+  }
+
+  .Handler__button {
+    min-width: 3rem;
+    min-height: 3rem;
+    border-radius: 4px;
+    & i {
+      font-size: 1.3rem;
+    }
+  }
+}
